@@ -17,9 +17,7 @@ public interface CalculateService {
     return new CalculateServiceVertxEBProxy(vertx, address);
   }
 
-  //void save(String collection, JsonObject document);
   Future<Double> calculateandpass(JsonObject message);
 
-//  void calculateandpass(String message);
-//}
+
 }
