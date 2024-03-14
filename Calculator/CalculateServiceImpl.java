@@ -21,10 +21,6 @@ public  class CalculateServiceImpl implements CalculateService
   public Future<Double> calculateandpass(JsonObject message) {
 
 
-//    vertx.eventBus().consumer("calculate", extractor ->
-//    {
-//      JsonObject data = new JsonObject();
-//      data = (JsonObject) extractor.body();
 
       String xValue = message.getString("xvalue");
       String yValue = message.getString("yvalue");
@@ -35,11 +31,7 @@ public  class CalculateServiceImpl implements CalculateService
       double y = Double.parseDouble(yValue);
       System.out.println("x: "+ xValue);
       System.out.println("y: "+ yValue);
-      double result = x + y; // Perform calculation (you can modify this to perform any operation)
-      // Reply back with the result
-//    routingContext.response().putHeader("content-type", "text/plain").end("Result: " + ok.result().body());
-
-//      extractor.reply(result);
+      double result = x + y; 
       String expression = String.format("%.2f + %.2f = %.2f", x, y,x+y);
 
       JsonObject databasepayload = new JsonObject();
@@ -52,10 +44,8 @@ public  class CalculateServiceImpl implements CalculateService
 
     System.out.println(expression);
 
-      //vertx.eventBus().request("databaselinkaddress", databasepayload );
 
-//
-//    });
+
       return Future.succeededFuture(result);
       //catch
 
