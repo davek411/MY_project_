@@ -19,20 +19,6 @@ public class Main {
 
    vertx.deployVerticle(new DatabaseVerticle());
 
-//    logger.info ("Database verticle Deployed");
 
-//    vertx.deployVerticle(new DatabaseVerticle());
-
-
-    //
-    //ewffff
-    //
-    //
-    // vvvvvvvvvvvvvvvvve(new MainVerticle2());
-
-
-    // dddtttttttttttttttt
-//      .<JsonObject> consumer("temperature.updates",mee -> {
-//        lOkkkkOnfo(">>>{}" + message.body().encodepRETTILYY;
   }
 }
