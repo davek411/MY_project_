@@ -16,9 +16,7 @@ public interface DatabaseService {
     return new DatabaseServiceVertxEBProxy(vertx, address);
   }
 
-  //void save(String collection, JsonObject document);
   void receiveandstore(JsonObject message);
 
-//  void calculateandpass(String message);
-//}
+
 }
