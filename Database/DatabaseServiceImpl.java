@@ -18,7 +18,6 @@ public class DatabaseServiceImpl implements DatabaseService {
   PgPool client;
   final Logger logger = LoggerFactory.getLogger(DatabaseServiceImpl.class);
 
- // private CalculateServiceVertxProxyHandler client;
 
   public DatabaseServiceImpl(Vertx vertx, PgPool client) {
 
@@ -32,7 +31,6 @@ public class DatabaseServiceImpl implements DatabaseService {
 
 
     logger.info(" inside database");
-    // Configure connection options
     PgConnectOptions connectOptions = new PgConnectOptions()
       .setPort(5432)
       .setHost("localhost")
@@ -49,26 +47,15 @@ public class DatabaseServiceImpl implements DatabaseService {
       .pool(vertx, connectOptions, poolOptions);
 
 
-    //vertx.eventBus().consumer("databaselinkaddress", databasextractor ->
-   // {
-     // JsonObject dataremove = new JsonObject();
-     // dataremove = (JsonObject) databasextractor.body();
-
+   
       String expression = data.getString("expression");
       double result = data.getDouble("result");
-     // String messageString = dataremove.getString("message");
       String result2 = Double.toString(result);
-      // Log pool creation status
-
-      // Listen for events from other verticles
-//      vertx.eventBus().consumer("computatiod, message -> {
-//        String result = (String) message.body();
+     
       System.out.println("hey: ");
-      // Replace "your-table-name" with your actual table name
       String sql = "INSERT INTO user_expressions (result, expression) VALUES ($1,$2)";
       Tuple params = Tuple.of(result, expression);
 
-      // Execute the query with the result
 
       client.withConnection(connection -> {
         connection.preparedQuery(sql).execute(params)
@@ -100,7 +87,6 @@ public class DatabaseServiceImpl implements DatabaseService {
         return null;
       });
 
-//      logger.info("completed query");
 
     }
 
